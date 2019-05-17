@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const generateData = require('./generateData.js');
 
-// create the sequelize instance, omitting the database-name arg
+// create the sequelize instance
 const sequelize = new Sequelize('photo_gallery', 'root', '', {
   host: 'localhost',
   dialect: 'mysql'
@@ -91,15 +91,3 @@ for (let i = 0; i < randomImages.length; i++) {
       console.log('Image added to database', randomImages[i].name);
     });
 }
-
-
-// // Create database photo-gallery
-// let promise = new Promise(function (resolve, reject) {
-//   sequelize.query("DROP DATABASE IF EXISTS photo-gallery;").then(data => {
-//     resolve(data);
-//   });
-// });
-
-// promise.then(sequelize.query("CREATE DATABASE photo-gallery;").then(data => {
-//   resolve(data);
-// }));
