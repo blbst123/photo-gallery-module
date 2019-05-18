@@ -1,63 +1,29 @@
-/* eslint-disable func-names */
-// Create tables: Images, Users, Restaurants
-const faker = require('faker');
+const generateData = require('./generateDataHelper.js');
+const db = require('./index.js');
 
-const getProfileUrl = function () {
-  const index = Math.floor(Math.random() * 10);
-  return `https://s3.us-east-2.amazonaws.com/team419photo-gallery-users/users${index}.jpeg`;
-};
+// Generate random users, restaurants and images
+const randomUsers = generateData.generateUsers();
+const randomRestaurants = generateData.generateRestaurants();
+const randomImages = generateData.generateImages();
 
-const getImageUrl = function () {
-  const index = Math.floor(Math.random() * 30);
-  return `https://s3.us-east-2.amazonaws.com/team419photo-gallery/foodImages${index}.jpg`;
-};
-
-module.exports.generateUsers = function (num = 100) {
-  let arr = [];
-
-  for (let i = 0; i < num; i++) {
-    arr.push({
-      id: i,
-      name: faker.name.findName(),
-      rating: Math.floor(Math.random() * 5 + 1),
-      friends: Math.floor(Math.random() * 100),
-      reviews: Math.floor(Math.random() * 100),
-      profile_url: getProfileUrl()
+// Insert random data into corresponding database
+for (let i = 0; i < randomUsers.length; i++) {
+  db.Users.create(randomUsers[i])
+    .then((data) => {
+      console.log('User added to database', randomUsers[i].name);
     });
-  }
+}
 
-  return arr;
-};
-
-module.exports.generateRestaurants = function (num = 100) {
-  let arr = [];
-
-  for (let i = 0; i < num; i++) {
-    arr.push({
-      id: i,
-      name: faker.company.companyName(),
-      photos: Math.floor(Math.random() * 20)
+for (let i = 0; i < randomRestaurants.length; i++) {
+  db.Restaurants.create(randomRestaurants[i])
+    .then((data) => {
+      console.log('Restaurant added to database', randomRestaurants[i].name);
     });
-  }
+}
 
-  return arr;
-};
-
-module.exports.generateImages = function (num = 1000) {
-  let arr = [];
-
-  for (let i = 0; i < num; i++) {
-    arr.push({
-      id: i,
-      image_url: getImageUrl(),
-      user_id: Math.floor(Math.random() * 100),
-      comment: faker.lorem.sentence(),
-      date: faker.date.recent(),
-      helpful: Math.floor(Math.random() * 20),
-      not_helpful: Math.floor(Math.random() * 20),
-      restaurant_id: Math.floor(Math.random() * 10)
+for (let i = 0; i < randomImages.length; i++) {
+  db.Images.create(randomImages[i])
+    .then((data) => {
+      console.log('Image added to database', randomImages[i].name);
     });
-  }
-
-  return arr;
-};
+}

@@ -6,8 +6,9 @@ module.exports = {
   rules: {
     'no-console': 'warn',
     'comma-dangle': 'off',
-    "prefer-const": 'warn',
+    'prefer-const': 'warn',
     'no-plusplus': 'off',
+    'func-names': 'off',
     'no-unused-vars': [
       'warn',
       {
