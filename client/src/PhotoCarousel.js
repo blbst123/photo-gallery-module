@@ -75,13 +75,13 @@ export default class PhotoCarousel extends React.Component {
   }
 
   render() {
-    const { selected1, selected2, selected3 } = this.state;
+    const { data, selected1, selected2, selected3 } = this.state;
 
     return (
       <div className="photoCarousel">
-        <Photo position="first" selected={selected1} image={fakeData[0].image_url} changeSelected={this.changeSelected} />
-        <Photo position="second" selected={selected2} image={fakeData[1].image_url} changeSelected={this.changeSelected} />
-        <PhotoMore position="third" selected={selected3} image={fakeData[2].image_url} data={fakeData.slice(2)} changeSelected={this.changeSelected} />
+        <Photo position="first" selected={selected1} image={data[0].image_url} changeSelected={this.changeSelected} />
+        <Photo position="second" selected={selected2} image={data[1].image_url} changeSelected={this.changeSelected} />
+        <PhotoMore position="third" selected={selected3} image={data[2].image_url} data={data.slice(2)} changeSelected={this.changeSelected} />
       </div>
     );
   }

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CommentPreview from './CommentPreview';
+
 
 export default class Photo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      classes: 'box'
-    };
     this.enterHandler = this.enterHandler.bind(this);
     this.leaveHandler = this.leaveHandler.bind(this);
   }
@@ -21,13 +20,12 @@ export default class Photo extends React.Component {
 
   render() {
     const { position, image, selected } = this.props;
-    let classes = 'box';
-    if (selected) {
-      classes = 'box selected';
-    }
+    const classes = selected ? 'box selected' : 'box';
 
     return (
-      <div id={position} className={classes} style={{ backgroundImage: `url(${image}` }} onMouseEnter={this.enterHandler} onMouseLeave={this.leaveHandler} />
+      <div id={position} className={classes} style={{ backgroundImage: `url(${image}` }} onMouseEnter={this.enterHandler} onMouseLeave={this.leaveHandler}>
+        <CommentPreview comment="This is a comment" user="UserName" selected={selected} />
+      </div>
     );
   }
 }

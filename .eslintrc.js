@@ -16,7 +16,9 @@ module.exports = {
         'args': 'none'
       }
     ],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": 0,
+    "object-curly-newline": 0
   },
   "env": {
     "node": true,
