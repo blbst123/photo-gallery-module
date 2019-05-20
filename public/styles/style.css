@@ -1,0 +1,52 @@
+.photoCarousel {
+  width: 700px;
+  padding: 10px;
+  background: #ddd;
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  /* background: #ff0000; */
+  margin: 0 0px;
+  transition: 0.5s;
+
+  position: relative;
+  display: block;
+  background-image: url('https://s3.us-east-2.amazonaws.com/team419photo-gallery/foodImages1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* .photo {
+  position: relative;
+  display: block;
+  background-image: url('https://s3.us-east-2.amazonaws.com/team419photo-gallery/foodImages3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 25%;
+} */
+
+/* #second {
+  background: #ffee00;
+} */
+
+.selected {
+  transform: scale(1.2);
+  /* transition: 0.5s; */
+  z-index: 2;
+}
+
+
+/* .box:hover {
+  transform: scale(1.2);
+  background: #cc0000;
+  box-shadow: 2px 2px 2px #000;
+  z-index: 2;
+} */

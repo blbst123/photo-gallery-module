@@ -15,7 +15,8 @@ module.exports = {
         'vars': 'local',
         'args': 'none'
       }
-    ]
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "env": {
     "node": true,

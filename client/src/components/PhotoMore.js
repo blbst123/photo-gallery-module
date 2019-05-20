@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Photo extends React.Component {
+export default class PhotoMore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,6 +19,15 @@ export default class Photo extends React.Component {
     this.props.changeSelected('second');
   }
 
+  // render() {
+
+  //   return (
+  //     <div className="photoMore">
+  //       <div></div>
+  //     </div>
+  //   )
+  // }
+
   render() {
     const { position, image, selected } = this.props;
     let classes = 'box';
@@ -32,9 +41,10 @@ export default class Photo extends React.Component {
   }
 }
 
-Photo.propTypes = {
+PhotoMore.propTypes = {
   position: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  data: PropTypes.array.isRequired,
   selected: PropTypes.bool.isRequired,
   changeSelected: PropTypes.func.isRequired
 };
