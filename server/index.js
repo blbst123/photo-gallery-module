@@ -7,7 +7,11 @@ const app = express();
 const port = 3003;
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '/client/dist')));
+app.use(express.static(path.join(__dirname, '../public')));
+
+app.get('/', (req, res) => {
+  res.send(200);
+});
 
 app.get('/images/:id', (req, res) => {
   db.retrieveImage(req.params.id, (result) => {

@@ -1,5 +1,5 @@
 const generateData = require('./generateDataHelper.js');
-const db = require('./index.js');
+const db = require('./databaseFunctions');
 
 // Generate random users, restaurants and images
 const randomUsers = generateData.generateUsers();
