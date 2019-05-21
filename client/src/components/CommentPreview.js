@@ -12,11 +12,15 @@ export default class CommentPreview extends React.Component {
   render() {
     const { user, comment, selected } = this.props;
     const classes = selected ? 'commentPreview' : 'commentPreview hideComment';
+    let shortComment = comment.slice(0, 50);
+    if (comment.length > 50) {
+      shortComment += '...';
+    }
 
     return (
       <div className={classes}>
-        <div>{`User Image: ${user}`}</div>
-        <div>{`Comment here: ${comment}`}</div>
+        <img src={user.icon} alt="icon" className="icon" />
+        <div className="commentPreviewText"><span className="comment">{shortComment}</span> {`by ${user.name}`}</div>
       </div>
     );
   }
@@ -24,8 +28,8 @@ export default class CommentPreview extends React.Component {
 
 CommentPreview.propTypes = {
   comment: PropTypes.string,
-  user: PropTypes.string,
+  user: PropTypes.object.isRequired,
   selected: PropTypes.bool.isRequired
 };
 
-CommentPreview.defaultProps = { comment: '', user: '' };
+CommentPreview.defaultProps = { comment: '' };

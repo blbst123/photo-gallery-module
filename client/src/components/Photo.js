@@ -21,10 +21,14 @@ export default class Photo extends React.Component {
   render() {
     const { position, image, selected } = this.props;
     const classes = selected ? 'box selected' : 'box';
+    const user = {
+      name: 'UserName',
+      icon: 'https://s3.us-east-2.amazonaws.com/team419photo-gallery-users/users3.jpeg'
+    };
 
     return (
       <div id={position} className={classes} style={{ backgroundImage: `url(${image}` }} onMouseEnter={this.enterHandler} onMouseLeave={this.leaveHandler}>
-        <CommentPreview comment="This is a comment" user="UserName" selected={selected} />
+        <CommentPreview comment="This is a comment talking about how much I love the food here" user={user} selected={selected} />
       </div>
     );
   }

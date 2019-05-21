@@ -16,15 +16,6 @@ export default class PhotoMore extends React.Component {
     this.props.changeSelected('second');
   }
 
-  // render() {
-
-  //   return (
-  //     <div className="photoMore">
-  //       <div></div>
-  //     </div>
-  //   )
-  // }
-
   render() {
     const { position, data, selected } = this.props;
     const classes = selected ? 'photoMore box selected' : 'photoMore box';
