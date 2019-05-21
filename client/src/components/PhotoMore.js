@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SeeAll from './SeeAll';
 
 export default class PhotoMore extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ export default class PhotoMore extends React.Component {
         <div className="smallPhoto two" style={{ backgroundImage: `url(${data[1].image_url}` }} />
         <div className="smallPhoto three" style={{ backgroundImage: `url(${data[2].image_url}` }} />
         <div className="smallPhoto four" style={{ backgroundImage: `url(${data[3].image_url}` }} />
+        <SeeAll photos={123} />
       </div>
     );
   }
