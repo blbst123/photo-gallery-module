@@ -6,7 +6,6 @@ module.exports = {
   rules: {
     'no-console': 'warn',
     'comma-dangle': 'off',
-    'prefer-const': 'warn',
     'no-plusplus': 'off',
     'func-names': 'off',
     'no-unused-vars': [
@@ -15,7 +14,10 @@ module.exports = {
         'vars': 'local',
         'args': 'none'
       }
-    ]
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": 0,
+    "object-curly-newline": 0
   },
   "env": {
     "node": true,
