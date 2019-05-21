@@ -9,9 +9,7 @@ export default class PhotoCarousel extends React.Component {
     super(props);
     this.state = {
       data: [],
-      selected1: false,
-      selected2: true,
-      selected3: false
+      selected: "middle"
     };
     this.changeSelected = this.changeSelected.bind(this);
   }
@@ -22,40 +20,24 @@ export default class PhotoCarousel extends React.Component {
     });
   }
 
-  changeSelected(pos = 'second') {
-    if (pos === 'first') {
-      this.setState({
-        selected1: true,
-        selected2: false,
-        selected3: false
-      });
-    } else if (pos === 'second') {
-      this.setState({
-        selected1: false,
-        selected2: true,
-        selected3: false
-      });
-    } else {
-      this.setState({
-        selected1: false,
-        selected2: false,
-        selected3: true
-      });
-    }
+  changeSelected(pos = 'middle') {
+    this.setState({
+      selected: pos
+    });
   }
 
   render() {
-    const { data, selected1, selected2, selected3 } = this.state;
+    const { data, selected } = this.state;
 
-    if (data.length === 0) {
+    if (!data.length) {
       return (<div />);
     }
 
     return (
       <div className="photoCarousel">
-        <Photo position="first" selected={selected1} photo={data[0]} changeSelected={this.changeSelected} />
-        <Photo position="second" selected={selected2} photo={data[1]} changeSelected={this.changeSelected} />
-        <PhotoMore position="third" selected={selected3} photos={data.slice(2)} changeSelected={this.changeSelected} />
+        <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} />
+        <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} />
+        <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
       </div>
     );
   }
