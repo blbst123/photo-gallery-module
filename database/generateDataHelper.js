@@ -10,11 +10,11 @@ const getProfileUrl = function () {
 
 const getImageUrl = function () {
   const index = Math.floor(Math.random() * 30);
-  return `https://s3.us-east-2.amazonaws.com/team419photo-gallery/foodImages${index}.jpg`;
+  return `https://s3.us-east-2.amazonaws.com/team419photo-gallery-preview-images/foodImages${index}.jpg`;
 };
 
 module.exports.generateUsers = function (num = 100) {
-  let arr = [];
+  const arr = [];
 
   for (let i = 0; i < num; i++) {
     arr.push({
@@ -30,7 +30,7 @@ module.exports.generateUsers = function (num = 100) {
 };
 
 module.exports.generateRestaurants = function (num = 100) {
-  let arr = [];
+  const arr = [];
 
   for (let i = 0; i < num; i++) {
     arr.push({
@@ -43,7 +43,7 @@ module.exports.generateRestaurants = function (num = 100) {
 };
 
 module.exports.generateImages = function (num = 1000) {
-  let arr = [];
+  const arr = [];
 
   for (let i = 0; i < num; i++) {
     arr.push({
