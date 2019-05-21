@@ -18,16 +18,16 @@ export default class PhotoMore extends React.Component {
   }
 
   render() {
-    const { position, data, selected } = this.props;
+    const { position, photos, selected } = this.props;
     const classes = selected ? 'photoMore box selected' : 'photoMore box';
 
     return (
       <div id={position} className={classes} onMouseEnter={this.enterHandler} onMouseLeave={this.leaveHandler}>
-        <div className="smallPhoto one" style={{ backgroundImage: `url(${data[0].image_url}` }} />
-        <div className="smallPhoto two" style={{ backgroundImage: `url(${data[1].image_url}` }} />
-        <div className="smallPhoto three" style={{ backgroundImage: `url(${data[2].image_url}` }} />
-        <div className="smallPhoto four" style={{ backgroundImage: `url(${data[3].image_url}` }} />
-        <SeeAll photos={123} />
+        <div className="smallPhoto one" style={{ backgroundImage: `url(${photos[0].image_url}` }} />
+        <div className="smallPhoto two" style={{ backgroundImage: `url(${photos[1].image_url}` }} />
+        <div className="smallPhoto three" style={{ backgroundImage: `url(${photos[2].image_url}` }} />
+        <div className="smallPhoto four" style={{ backgroundImage: `url(${photos[3].image_url}` }} />
+        <SeeAll photoNum={photos.length + 2} />
       </div>
     );
   }
@@ -35,7 +35,7 @@ export default class PhotoMore extends React.Component {
 
 PhotoMore.propTypes = {
   position: PropTypes.string.isRequired,
-  data: PropTypes.array.isRequired,
+  photos: PropTypes.array.isRequired,
   selected: PropTypes.bool.isRequired,
   changeSelected: PropTypes.func.isRequired
 };
