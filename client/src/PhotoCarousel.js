@@ -36,7 +36,7 @@ export default class PhotoCarousel extends React.Component {
     }
 
     return (
-      <div className="photoCarousel">
+      <div className="photo-carousel">
         <PhotoModal />
         <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} />
         <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} />

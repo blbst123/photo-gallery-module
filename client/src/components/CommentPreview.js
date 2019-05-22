@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const CommentPreview = function (props) {
   const { user, comment, selected } = props;
-  const classes = selected ? 'commentPreview' : 'commentPreview hideComment';
+  const classes = selected ? 'comment-preview' : 'comment-preview hide-comment';
   let shortComment = comment.slice(0, 50);
 
   if (comment.length > 50) {
@@ -15,7 +15,7 @@ const CommentPreview = function (props) {
   return (
     <div className={classes}>
       <img src={user.icon} alt="user icon" className="icon" />
-      <div className="commentPreviewText"><span className="comment">{shortComment}</span> {`by ${user.name}`}</div>
+      <div className="comment-preview__text"><span className="comment">{shortComment}</span> {`by ${user.name}`}</div>
     </div>
   );
 };

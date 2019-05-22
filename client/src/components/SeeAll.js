@@ -5,8 +5,8 @@ const SeeAll = function (props) {
   const { photoNum } = props;
 
   return (
-    <div className="smallPhoto cover">
-      <div className="whiteboxArea">
+    <div className="small-photo cover">
+      <div className="whitebox__area">
         <div className="whitebox one" />
         <div className="whitebox two" />
         <div className="whitebox three" />

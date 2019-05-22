@@ -17,8 +17,8 @@ export default class PhotoModal extends React.Component {
     };
 
     return (
-      <div className="photoModal">
-        <div className="photoPopup">
+      <div className="photo-modal-bg">
+        <div className="photo-modal">
           <PhotoModalImage />
           <PhotoModalComment user={user} />
           <PhotoModalAd />

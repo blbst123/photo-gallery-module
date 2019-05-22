@@ -8,10 +8,10 @@ const Followers = function (props) {
 
   return (
     <div className="followers">
-      <img src={followersIconUrl} alt="icon" className="followersIcon" />
-      <p className="textIcon">333</p>
-      <img src={starIconUrl} alt="star" className="starIcon" />
-      <p className="textIcon">10</p>
+      <img src={followersIconUrl} alt="icon" className="followers-icon" />
+      <p className="text-icon">333</p>
+      <img src={starIconUrl} alt="star" className="star-icon" />
+      <p className="text-icon">10</p>
     </div>
   );
 };

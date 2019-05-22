@@ -9,7 +9,7 @@ export default class PhotoModalImage extends React.Component {
 
   render() {
     return (
-      <div className="photoModalImage">
+      <div className="photo-modal__image">
       </div>
     );
   }
