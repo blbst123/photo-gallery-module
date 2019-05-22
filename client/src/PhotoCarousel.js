@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Photo from './components/Photo';
 import PhotoMore from './components/PhotoMore';
+import PhotoModal from './components/PhotoModal';
 import fakeData from './fakeData';
 
 export default class PhotoCarousel extends React.Component {
@@ -9,7 +10,8 @@ export default class PhotoCarousel extends React.Component {
     super(props);
     this.state = {
       data: [],
-      selected: "middle"
+      selected: 'middle',
+      modal: false
     };
     this.changeSelected = this.changeSelected.bind(this);
   }
@@ -35,6 +37,7 @@ export default class PhotoCarousel extends React.Component {
 
     return (
       <div className="photoCarousel">
+        <PhotoModal />
         <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} />
         <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} />
         <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
