@@ -11,9 +11,10 @@ export default class PhotoCarousel extends React.Component {
     this.state = {
       data: [],
       selected: 'middle',
-      modal: false
+      modal: 'hidden'
     };
     this.changeSelected = this.changeSelected.bind(this);
+    this.togglePhotoModal = this.togglePhotoModal.bind(this);
   }
 
   componentDidMount() {
@@ -28,8 +29,15 @@ export default class PhotoCarousel extends React.Component {
     });
   }
 
+  togglePhotoModal() {
+    const modal = (this.state.modal === 'hidden') ? 'visible' : 'hidden';
+    this.setState({
+      modal
+    });
+  }
+
   render() {
-    const { data, selected } = this.state;
+    const { data, selected, modal } = this.state;
 
     if (!data.length) {
       return (<div />);
@@ -37,10 +45,10 @@ export default class PhotoCarousel extends React.Component {
 
     return (
       <div className="photo-carousel">
-        <PhotoModal />
-        <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} />
-        <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} />
-        <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
+        <PhotoModal visibility={modal} hideModal={this.togglePhotoModal} />
+        <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.togglePhotoModal} />
+        <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.togglePhotoModal} />
+        <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} showModal={this.togglePhotoModal} />
       </div>
     );
   }
