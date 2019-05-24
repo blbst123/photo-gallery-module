@@ -9,8 +9,7 @@ export default class PhotoModalAd extends React.Component {
 
   render() {
     return (
-      <div className="photo-modal__ad">
-      </div>
+      <div className="photo-modal__ad">TODO: ADVERTISEMENT</div>
     );
   }
 }
