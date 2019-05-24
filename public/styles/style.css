@@ -224,6 +224,7 @@ svg.arrow {
 
 svg.arrow:hover {
   fill: rgba(255,255,255, 1);
+  cursor: pointer;
 }
 
 .arrow-container-left {
@@ -479,13 +480,89 @@ button.helpful-buttons:hover {
   border: 0.5px solid #ebac2c;
 }
 
+.photo-modal__ad-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5px;
+}
+
 .photo-modal__ad-title-ADicon {
-  height: 18px;
-  width: 26px;
+  height: 16px;
+  width: 24px;
+  margin-top: 10px;
   background: #ebac2c;
   text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  color: white;
   border-radius: 4px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4px 0 0;
+}
+
+.photo-modal__ad-title-ADicon p {
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+  margin: 0;
+}
+
+.photo-modal__ad-title h3{
+  color: #0073BB;
+  font-size: 16px;
+  font-weight: 400;
+  display: inline;
+  margin: 0 60px 0 0;
+}
+
+.photo-modal__ad-title h3:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.photo-modal__ad-title svg{
+  height: 20px;
+  width: 20px;
+  fill: #ebac2c;
+  justify-self: flex-end;
+}
+
+.photo-modal__ad-reviews {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.rating-stars {
+  background: url('https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png') top left no-repeat;
+  background-position: 0 -348px;
+  height: 18px;
+  width: 110px;
+  display: inline-block;
+}
+
+.photo-modal__ad-reviews p{
+  display: inline-block;
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+.photo-modal__ad-comment p {
+  color: #333;
+  margin: 0;
+  line-height: 18px;
+}
+ 
+span.commentor {
+  font-weight: bold;
+}
+
+span.read-more {
+  color: #0073BB;
+  font-weight: bold;
+}
+
+span.read-more:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
