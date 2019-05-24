@@ -9,7 +9,14 @@ export default class PhotoModalAd extends React.Component {
 
   render() {
     return (
-      <div className="photo-modal__ad">TODO: ADVERTISEMENT</div>
+      <div className="photo-modal__ad">
+        <div className="photo-modal__ad-border" />
+        <div className="photo-modal__ad-title">
+          <div className="photo-modal__ad-title-ADicon">
+            <p>Ad</p>
+          </div>
+        </div>
+      </div>
     );
   }
 }
