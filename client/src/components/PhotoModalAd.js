@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const PhotoModalAd = function (props) {
   return (
@@ -23,10 +22,6 @@ const PhotoModalAd = function (props) {
       </div>
     </div>
   );
-};
-
-PhotoModalAd.propTypes = {
-  // photos: PropTypes.object.isRequired
 };
 
 export default PhotoModalAd;

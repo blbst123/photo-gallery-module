@@ -4,18 +4,18 @@ import Followers from './Followers';
 import HelpfulButtons from './HelpfulButtons';
 
 const PhotoModalComment = function (props) {
-  const { user } = props;
+  const { user, comment } = props;
   return (
     <div className="photo-modal__comment">
       <div className="user-section">
         <img src={user.icon} alt="user icon" className="profile-modal__user-icon" />
         <div className="photo-modal__comment-right">
-          <p className="photo-modal-username">Nicholas D.</p>
-          <Followers />
+          <p className="photo-modal-username">{user.name}</p>
+          <Followers followers={user.followers} stars={user.stars} />
         </div>
       </div>
-      <p className="comment-text">Decor is awesome. Minimal, clean natural wood.</p>
-      <p className="comment-date">April 27, 2019</p>
+      <p className="comment-text">{comment.text}</p>
+      <p className="comment-date">{comment.date}</p>
       <p className="comment-helpful">Was this photo ...?</p>
       <HelpfulButtons />
     </div>
@@ -23,7 +23,8 @@ const PhotoModalComment = function (props) {
 };
 
 PhotoModalComment.propTypes = {
-  // user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  comment: PropTypes.object.isRequired
 };
 
 export default PhotoModalComment;
