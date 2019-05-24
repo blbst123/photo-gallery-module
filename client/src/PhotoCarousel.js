@@ -55,3 +55,21 @@ export default class PhotoCarousel extends React.Component {
 }
 
 ReactDOM.render(<PhotoCarousel />, document.getElementById('photoCarousel'));
+
+// const user = {
+//   name: 'Nicholas D.'
+//   icon: 'https://s3.us-east-2.amazonaws.com/team419photo-gallery-users-preview/users1.jpg',
+//   followers: 333,
+//   stars: 10
+// };
+
+// const comment = {
+//   text: "blablalba",
+//   date: Date();
+// }
+
+// const image = {
+//   url: '',
+//   imageNum: 2,
+//   totalImagesNum: 121
+// }
