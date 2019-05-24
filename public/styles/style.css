@@ -189,7 +189,7 @@
   /* border-radius: 10%; */
   display: grid;
   grid-template-columns: 1fr 300px;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 1fr 130px;
 }
 
 /* Photo Modal Image */
@@ -333,11 +333,10 @@ svg.flag-icon {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* margin: 10px 0 10px 15px; */
 }
 
 .profile-modal__user-icon {
-  height: 80%;
+  height: 75%;
   display: inline-block;
   border-radius: 10%;
   margin-right: 10px;
@@ -352,7 +351,7 @@ svg.flag-icon {
   font-weight: bold;
   font-size: 14px;
   color: #0073BB;
-  margin: 2px 0 8px 0;
+  margin: 4px 0 6px 0;
 }
 
 .photo-modal-username:hover {
@@ -362,7 +361,7 @@ svg.flag-icon {
 
 .followers {
   width: 200px;
-  height: 14px;
+  height: 12px;
   display: flex;
   align-items: center;
 }
@@ -374,21 +373,22 @@ svg.flag-icon {
 
 .text-icon {
   font-size: 12px;
-  font-weight: bold;
-  font-family: Verdana;
+  font-weight: 600;
+  font-family: "Helvetica Neue";
   color: rgb(100, 100, 100);
   margin-right: 15px;
 }
 
 .comment-text {
   color: #333;
+  margin-top: 6px;
   margin-bottom: 0;
 }
 
 .comment-date {
   color: #999;
   font-size: 12px;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .comment-helpful {
@@ -398,13 +398,13 @@ svg.flag-icon {
   margin: 12px 0 8px 0;
 }
 
-/* Helpful Buttons */
+/****** Helpful Buttons ******/
 button.helpful-buttons {
   font-size: 100%;
   font-family: inherit;
   border: 1px solid #ccc;
   padding: 5px 8px;
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 0 3px 0 0;
 }
 
