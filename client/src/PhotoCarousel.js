@@ -11,7 +11,7 @@ export default class PhotoCarousel extends React.Component {
     this.state = {
       data: [],
       selected: 'middle',
-      modal: 'visible'
+      modal: 'hidden'
     };
     this.changeSelected = this.changeSelected.bind(this);
     this.togglePhotoModal = this.togglePhotoModal.bind(this);
