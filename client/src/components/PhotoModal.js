@@ -6,7 +6,7 @@ import PhotoModalComment from './PhotoModalComment';
 import PhotoModalAd from './PhotoModalAd';
 
 const PhotoModal = function (props) {
-  const { visibility, hideModal, photo } = props;
+  const { visibility, hideModal, photo, changePhoto } = props;
   const visibilityStyle = {
     visibility
   };
@@ -25,7 +25,7 @@ const PhotoModal = function (props) {
   return (
     <div className="photo-modal-bg" style={visibilityStyle} onClick={hideModal}>
       <div className="photo-modal" onClick={(e) => { e.stopPropagation(); }}>
-        <PhotoModalImage image={image} />
+        <PhotoModalImage image={image} changePhoto={changePhoto} />
         <PhotoModalComment user={modalUser} comment={comment} />
         <PhotoModalAd />
       </div>
@@ -37,7 +37,8 @@ const PhotoModal = function (props) {
 PhotoModal.propTypes = {
   visibility: PropTypes.string.isRequired,
   hideModal: PropTypes.func.isRequired,
-  photo: PropTypes.object.isRequired,
+  changePhoto: PropTypes.func.isRequired,
+  photo: PropTypes.object.isRequired
 };
 
 export default PhotoModal;

@@ -14,7 +14,7 @@ const PhotoModalAd = function (props) {
         </svg>
       </div>
       <div className="photo-modal__ad-reviews">
-        <div className="rating-stars" />
+        <div className="rating-stars-3_5" />
         <p>74 reviews</p>
       </div>
       <div className="photo-modal__ad-comment">

@@ -204,14 +204,13 @@
   grid-column: 1/span 1;
   grid-row: 1/span 2;
   background-color: rgba(0, 0, 0, 0.9);
-  background-image: url('https://s3-media3.fl.yelpcdn.com/bphoto/DLnS2yITwrFX8PBJdoVcpg/o.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center; 
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 30px;
 }
 
@@ -220,11 +219,6 @@ svg.arrow {
   height: 50px;
   width: 50px;
   fill: rgba(255,255,255, 0.7);
-}
-
-svg.arrow:hover {
-  fill: rgba(255,255,255, 1);
-  cursor: pointer;
 }
 
 .arrow-container-left {
@@ -241,6 +235,14 @@ svg.arrow:hover {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.arrow-container-left:hover, .arrow-container-right:hover {
+  cursor: pointer;
+}
+
+.arrow-container-left:hover svg, .arrow-container-right:hover svg  {
+  fill: rgba(255,255,255, 1);
 }
 
 .photo-modal_image-bottom-bar {
@@ -533,7 +535,7 @@ button.helpful-buttons:hover {
   padding: 5px 0;
 }
 
-.rating-stars {
+.rating-stars-3_5 {
   background: url('https://s3-media2.fl.yelpcdn.com/assets/srv0/yelp_design_web/9b34e39ccbeb/assets/img/stars/stars.png') top left no-repeat;
   background-position: 0 -348px;
   height: 18px;

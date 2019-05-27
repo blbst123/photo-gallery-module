@@ -32,15 +32,16 @@ export default class PhotoCarousel extends React.Component {
     this.state = {
       data: [],
       selected: 'middle',
-      modal: 'hidden',
+      modalVisibility: 'hidden',
       modalPhoto: {},
       modalUser: {},
       photoNum: 0
     };
+    this.getRestaurantPhotos = this.getRestaurantPhotos.bind(this);
     this.changeSelected = this.changeSelected.bind(this);
     this.showPhotoModal = this.showPhotoModal.bind(this);
     this.hidePhotoModal = this.hidePhotoModal.bind(this);
-    this.getRestaurantPhotos = this.getRestaurantPhotos.bind(this);
+    this.changePhoto = this.changePhoto.bind(this);
   }
 
   componentDidMount() {
@@ -64,16 +65,13 @@ export default class PhotoCarousel extends React.Component {
 
   showPhotoModal(position) {
     const { data } = this.state;
+    const photoNum = (position === 'left') ? 0 : 1;
 
-    const modalPhoto = (position === 'left') ? data[0] : data[1];
-    const photoNum = (position === 'left') ? 1 : 2;
-
-
-    axios.get(`/user/${modalPhoto.user_id}`)
+    axios.get(`/user/${data[photoNum].user_id}`)
       .then((result) => {
         this.setState({
-          modal: 'visible',
-          modalPhoto,
+          modalVisibility: 'visible',
+          modalPhoto: data[photoNum],
           modalUser: result.data,
           photoNum
         });
@@ -82,12 +80,32 @@ export default class PhotoCarousel extends React.Component {
 
   hidePhotoModal() {
     this.setState({
-      modal: 'hidden'
+      modalVisibility: 'hidden'
     });
   }
 
+  changePhoto(currPhotoNum, directionNum) {
+    const { data } = this.state;
+    let newPhotoNum = currPhotoNum + directionNum;
+
+    if (newPhotoNum < 0) {
+      newPhotoNum = data.length - 1;
+    } else if (newPhotoNum >= data.length) {
+      newPhotoNum = 0;
+    }
+
+    axios.get(`/user/${data[newPhotoNum].user_id}`)
+      .then((result) => {
+        this.setState({
+          modalPhoto: data[newPhotoNum],
+          modalUser: result.data,
+          photoNum: newPhotoNum
+        });
+      });
+  }
+
   render() {
-    const { data, selected, modal, modalPhoto, photoNum, modalUser } = this.state;
+    const { data, selected, modalVisibility, modalPhoto, photoNum, modalUser } = this.state;
 
     const photo = {
       modalPhoto,
@@ -102,7 +120,7 @@ export default class PhotoCarousel extends React.Component {
 
     return (
       <div className="photo-carousel">
-        <PhotoModal visibility={modal} hideModal={this.hidePhotoModal} photo={photo} />
+        <PhotoModal visibility={modalVisibility} hideModal={this.hidePhotoModal} photo={photo} changePhoto={this.changePhoto} />
         <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
         <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
         <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
