@@ -8,9 +8,8 @@ const Users = sequelize.define('users', {
     autoIncrement: true
   },
   name: Sequelize.STRING,
-  rating: Sequelize.INTEGER,
   friends: Sequelize.INTEGER,
-  review: Sequelize.INTEGER,
+  reviews: Sequelize.INTEGER,
   profile_url: Sequelize.STRING
 }, {
   timestamps: false
@@ -25,6 +24,7 @@ const Images = sequelize.define('images', {
   image_url: Sequelize.STRING,
   user_id: Sequelize.INTEGER,
   comment: Sequelize.STRING,
+  rating: Sequelize.STRING,
   date: Sequelize.DATE,
   helpful: Sequelize.INTEGER,
   not_helpful: Sequelize.INTEGER,
@@ -39,8 +39,7 @@ const Restaurants = sequelize.define('restaurants', {
     primaryKey: true,
     autoIncrement: true
   },
-  name: Sequelize.STRING,
-  photos: Sequelize.INTEGER
+  name: Sequelize.STRING
 }, {
   timestamps: false
 });
@@ -69,10 +68,21 @@ const retrieveRestaurantImage = function (restaurantId, callback) {
   });
 };
 
+const retrieveUser = function (userId, callback) {
+  Users.findOne({
+    where: {
+      id: userId
+    }
+  }).then((result) => {
+    callback(result);
+  });
+};
+
 module.exports = {
   Users,
   Restaurants,
   Images,
   retrieveImage,
-  retrieveRestaurantImage
+  retrieveRestaurantImage,
+  retrieveUser
 };

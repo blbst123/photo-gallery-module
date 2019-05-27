@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PhotoModalImageBottomBar = function (props) {
-  // const { photoNum } = props;
+  const { photoNum, photoTotalNum } = props;
 
   return (
     <div className="photo-modal_image-bottom-bar">
@@ -12,7 +12,7 @@ const PhotoModalImageBottomBar = function (props) {
       </div>
 
       <div className="photo-location">
-        <p>2 of 121</p>
+        <p>{photoNum} of {photoTotalNum}</p>
       </div>
 
       <div className="bottom-bar-actions">
@@ -31,7 +31,8 @@ const PhotoModalImageBottomBar = function (props) {
 };
 
 PhotoModalImageBottomBar.propTypes = {
-  // photoNum: PropTypes.number.isRequired
+  photoNum: PropTypes.number.isRequired,
+  photoTotalNum: PropTypes.number.isRequired
 };
 
 export default PhotoModalImageBottomBar;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const HelpfulButtons = function (props) {
   return (
@@ -15,9 +14,5 @@ const HelpfulButtons = function (props) {
     </div>
   );
 };
-
-// HelpfulButtons.propTypes = {
-//   photoNum: PropTypes.number.isRequired
-// };
 
 export default HelpfulButtons;
