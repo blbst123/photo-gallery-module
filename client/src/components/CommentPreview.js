@@ -14,7 +14,7 @@ const CommentPreview = function (props) {
 
   return (
     <div className={classes}>
-      <img src={user.icon} alt="user icon" className="icon" />
+      <img src={user.profile_url} alt="user icon" className="icon" />
       <div className="comment-preview__text"><span className="comment">{shortComment}</span> {`by ${user.name}`}</div>
     </div>
   );

@@ -19,7 +19,6 @@ module.exports.generateUsers = function (num = 100) {
   for (let i = 0; i < num; i++) {
     arr.push({
       name: faker.name.findName(),
-      rating: Math.floor(Math.random() * 5 + 1),
       friends: Math.floor(Math.random() * 100),
       reviews: Math.floor(Math.random() * 100),
       profile_url: getProfileUrl()
@@ -34,8 +33,7 @@ module.exports.generateRestaurants = function (num = 100) {
 
   for (let i = 0; i < num; i++) {
     arr.push({
-      name: faker.company.companyName(),
-      photos: Math.floor(Math.random() * 20)
+      name: faker.company.companyName()
     });
   }
 
@@ -50,6 +48,7 @@ module.exports.generateImages = function (num = 1000) {
       image_url: getImageUrl(),
       user_id: Math.floor(Math.random() * 99 + 1),
       comment: faker.lorem.sentence(),
+      rating: Math.floor(Math.random() * 5 + 1),
       date: faker.date.recent(),
       helpful: Math.floor(Math.random() * 20),
       not_helpful: Math.floor(Math.random() * 20),

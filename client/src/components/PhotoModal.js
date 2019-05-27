@@ -1,39 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import PhotoModalImage from './PhotoModalImage';
 import PhotoModalComment from './PhotoModalComment';
 import PhotoModalAd from './PhotoModalAd';
 
 const PhotoModal = function (props) {
-  const { user, comment, image } = props;
-  // const user = {
-  //   name: 'Nicholas D.'
-  //   icon: 'https://s3.us-east-2.amazonaws.com/team419photo-gallery-users-preview/users1.jpg',
-  //   followers: 333,
-  //   stars: 10
-  // };
-
-  // const comment = {
-  //   text: "blablalba",
-  //   date: Date();
-  // }
-
-  // const image = {
-  //   url: '',
-  //   imageNum: 2,
-  //   totalImagesNum: 121
-  // }
-
-  const { visibility, hideModal } = props;
+  const { visibility, hideModal, photo } = props;
   const visibilityStyle = {
     visibility
   };
+
+  const image = {
+    url: photo.modalPhoto.image_url,
+    photoNum: photo.photoNum,
+    photoTotalNum: photo.photoTotalNum
+  };
+  const comment = {
+    text: photo.modalPhoto.comment,
+    date: photo.modalPhoto.date
+  };
+  const { modalUser } = photo;
 
   return (
     <div className="photo-modal-bg" style={visibilityStyle} onClick={hideModal}>
       <div className="photo-modal" onClick={(e) => { e.stopPropagation(); }}>
         <PhotoModalImage image={image} />
-        <PhotoModalComment user={user} comment={comment} />
+        <PhotoModalComment user={modalUser} comment={comment} />
         <PhotoModalAd />
       </div>
     </div>
@@ -44,9 +37,7 @@ const PhotoModal = function (props) {
 PhotoModal.propTypes = {
   visibility: PropTypes.string.isRequired,
   hideModal: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  comment: PropTypes.object.isRequired,
-  image: PropTypes.object.isRequired
+  photo: PropTypes.object.isRequired,
 };
 
 export default PhotoModal;

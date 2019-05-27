@@ -1,25 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+
 import CommentPreview from './CommentPreview';
 
-const Photo = function (props) {
-  const enterHandler = () => {
-    props.changeSelected(props.position);
-  };
+export default class Photo extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const { position, photo, selected, changeSelected, showModal } = props;
-  const classes = selected ? 'box selected' : 'box';
-  const user = {
-    name: photo.userName,
-    icon: photo.user_icon
-  };
+    this.state = {
+      user: {}
+    };
 
-  return (
-    <div id={position} className={classes} style={{ backgroundImage: `url(${photo.image_url}` }} onMouseEnter={enterHandler} onMouseLeave={changeSelected.bind(null, 'middle')} onClick={showModal}>
-      <CommentPreview comment={photo.comment} user={user} selected={selected} />
-    </div>
-  );
-};
+    this.enterHandler = this.enterHandler.bind(this);
+  }
+
+  componentDidMount() {
+    const { photo } = this.props;
+
+    axios.get(`/user/${photo.user_id}`)
+      .then((result) => {
+        this.setState({
+          user: result.data
+        });
+      });
+  }
+
+  enterHandler() {
+    this.props.changeSelected(this.props.position);
+  }
+
+  render() {
+    const { position, photo, selected, changeSelected, showModal } = this.props;
+    const classes = selected ? 'box selected' : 'box';
+    const { user } = this.state;
+
+    return (
+      <div id={position} className={classes} style={{ backgroundImage: `url(${photo.image_url}` }} onMouseEnter={this.enterHandler} onMouseLeave={changeSelected.bind(null, 'middle')} onClick={showModal.bind(null, position)}>
+        <CommentPreview comment={photo.comment} user={user} selected={selected} />
+      </div>
+    );
+  }
+}
 
 Photo.propTypes = {
   position: PropTypes.string.isRequired,
@@ -28,5 +50,3 @@ Photo.propTypes = {
   changeSelected: PropTypes.func.isRequired,
   showModal: PropTypes.func.isRequired
 };
-
-export default Photo;

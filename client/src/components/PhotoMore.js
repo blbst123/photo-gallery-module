@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SeeAll from './SeeAll';
 
 const PhotoMore = function (props) {
-  const enterHandler = () => {
+  const mouseEnterHandler = () => {
     props.changeSelected(props.position);
   };
 
@@ -11,7 +11,7 @@ const PhotoMore = function (props) {
   const classes = selected ? 'photo-more box selected' : 'photo-more box';
 
   return (
-    <div id={position} className={classes} onMouseEnter={enterHandler} onMouseLeave={changeSelected.bind(null, 'middle')}>
+    <div id={position} className={classes} onMouseEnter={mouseEnterHandler} onMouseLeave={changeSelected.bind(null, 'middle')}>
       <div className="small-photo zero" style={{ backgroundImage: `url(${photos[0].image_url}` }} />
       <div className="small-photo one" style={{ backgroundImage: `url(${photos[1].image_url}` }} />
       <div className="small-photo two" style={{ backgroundImage: `url(${photos[2].image_url}` }} />
