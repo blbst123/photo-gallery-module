@@ -183,14 +183,42 @@
   z-index: 3;
 }
 
+.photo-modal-close {
+  position: absolute;
+  top: -28px;
+  right: 0;
+  display: flex;
+  align-content: center;
+}
+
+.photo-modal-close p {
+  margin: auto 0;
+  color: #999;
+  font-weight: 700;
+}
+
+.photo-modal-close svg {
+  padding: 0px;
+  height: 24px;
+  width: 24px;
+  fill: #999;
+}
+
+.photo-modal-close:hover p, .photo-modal-close:hover svg {
+  color: white;
+  fill: white;
+  cursor: pointer;
+}
+
 .photo-modal {
   width: 90%;
   max-width: 1300px;
-  height: 93.5%;
+  height: 92%;
   /* min-width: 800px;
   min-height: 500px; */
   /* background-color: rgba(0, 0, 0, 0); */
   /* border-radius: 10%; */
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 300px;
   grid-template-rows: 1fr 140px;
@@ -343,7 +371,8 @@ svg.flag-icon {
 }
 
 .profile-modal__user-icon {
-  height: 75%;
+  height: 30px;
+  width: 30px;
   display: inline-block;
   border-radius: 10%;
   margin-right: 10px;
