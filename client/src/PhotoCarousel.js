@@ -5,26 +5,6 @@ import axios from 'axios';
 import Photo from './components/Photo';
 import PhotoMore from './components/PhotoMore';
 import PhotoModal from './components/PhotoModal';
-// import fakeData from './fakeData';
-
-
-const user = {
-  name: 'Nicholas D.',
-  icon: 'https://s3.us-east-2.amazonaws.com/team419photo-gallery-users-preview/users1.jpg',
-  followers: 333,
-  stars: 10
-};
-
-const comment = {
-  text: 'blablalba',
-  date: Date()
-};
-
-const image = {
-  url: '',
-  imageNum: 2,
-  totalImagesNum: 121
-};
 
 export default class PhotoCarousel extends React.Component {
   constructor(props) {
@@ -32,7 +12,7 @@ export default class PhotoCarousel extends React.Component {
     this.state = {
       data: [],
       selected: 'middle',
-      modalVisibility: 'hidden',
+      modalVisibility: false,
       modalPhoto: {},
       modalUser: {},
       photoNum: 0
@@ -70,7 +50,7 @@ export default class PhotoCarousel extends React.Component {
     axios.get(`/user/${data[photoNum].user_id}`)
       .then((result) => {
         this.setState({
-          modalVisibility: 'visible',
+          modalVisibility: true,
           modalPhoto: data[photoNum],
           modalUser: result.data,
           photoNum
@@ -80,7 +60,7 @@ export default class PhotoCarousel extends React.Component {
 
   hidePhotoModal() {
     this.setState({
-      modalVisibility: 'hidden'
+      modalVisibility: false
     });
   }
 
@@ -118,9 +98,19 @@ export default class PhotoCarousel extends React.Component {
       return (<div />);
     }
 
+    if (modalVisibility) {
+      return (
+        <div className="photo-carousel">
+          <PhotoModal hideModal={this.hidePhotoModal} photo={photo} changePhoto={this.changePhoto} />
+          <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+          <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+          <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
+        </div>
+      );
+    }
+
     return (
       <div className="photo-carousel">
-        <PhotoModal visibility={modalVisibility} hideModal={this.hidePhotoModal} photo={photo} changePhoto={this.changePhoto} />
         <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
         <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
         <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
