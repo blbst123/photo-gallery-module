@@ -22,6 +22,7 @@ export default class PhotoCarousel extends React.Component {
     this.showPhotoModal = this.showPhotoModal.bind(this);
     this.hidePhotoModal = this.hidePhotoModal.bind(this);
     this.changePhoto = this.changePhoto.bind(this);
+    // this.handleKey = this.handleKey.bind(this);
   }
 
   componentDidMount() {
@@ -83,6 +84,11 @@ export default class PhotoCarousel extends React.Component {
         });
       });
   }
+
+  // handleKey (e) {
+  //   console.log('herere');
+  //   console.log(e.key);
+  // };
 
   render() {
     const { data, selected, modalVisibility, modalPhoto, photoNum, modalUser } = this.state;

@@ -19,8 +19,14 @@ const PhotoModal = function (props) {
   };
   const { modalUser } = photo;
 
+  const handleKey = function (e) {
+    console.log('herere');
+    console.log(e.keycode);
+  };
+
+
   return (
-    <div className="photo-modal-bg" onClick={hideModal}>
+    <div className="photo-modal-bg" style={visibilityStyle} onClick={hideModal} tabIndex="0" onKeyDown={handleKey}>
       <div className="photo-modal" onClick={(e) => { e.stopPropagation(); }}>
         <div className="photo-modal-close" onClick={hideModal}>
           <p>Close</p>
