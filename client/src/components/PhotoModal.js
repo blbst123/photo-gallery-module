@@ -5,36 +5,35 @@ import PhotoModalImage from './PhotoModalImage';
 import PhotoModalComment from './PhotoModalComment';
 import PhotoModalAd from './PhotoModalAd';
 
-<<<<<<< HEAD
-const PhotoModal = function (props) {
-  const { hideModal, photo, changePhoto } = props;
-=======
 export default class PhotoModal extends React.Component {
   constructor(props) {
     super(props);
->>>>>>> Refactor to add clickevent to window
 
     this.handleKey = this.handleKey.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKey);
+    document.addEventListener('keydown', this.handleKey);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDown);
+    document.removeEventListener('keydown', this.handleKey);
   }
 
-  handleKey (e) {
-    console.log('herere');
-    console.log(e.key);
-  };
+  handleKey(e) {
+    const { hideModal, photo, changePhoto } = this.props;
+    
+    if (e.key === 'ArrowLeft') {
+      changePhoto(photo.photoNum, -1);
+    } else if (e.key === 'ArrowRight') {
+      changePhoto(photo.photoNum, 1);
+    } else if (e.key === 'Escape') {
+      hideModal();
+    }
+  }
 
   render() {
-    const { visibility, hideModal, photo, changePhoto } = this.props;
-    const visibilityStyle = {
-      visibility
-    };
+    const { hideModal, photo, changePhoto } = this.props;
 
     const image = {
       url: photo.modalPhoto.image_url,
@@ -48,7 +47,7 @@ export default class PhotoModal extends React.Component {
     const { modalUser } = photo;
 
     return (
-      <div className="photo-modal-bg" style={visibilityStyle} onClick={hideModal} tabIndex="0" onKeyDown={this.handleKey}>
+      <div className="photo-modal-bg" onClick={hideModal} onKeyDown={this.handleKey}>
         <div className="photo-modal" onClick={(e) => { e.stopPropagation(); }}>
           <div className="photo-modal-close" onClick={hideModal}>
             <p>Close</p>
