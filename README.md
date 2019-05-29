@@ -28,12 +28,15 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
-### Installing Dependencies
+### Instructions for starting my component
 
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
+npm run create-database
+npm run generate-data
+npm run react-dev
+npm run server-dev
 ```
 
