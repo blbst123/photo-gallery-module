@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SeeAll from './SeeAll';
+import css from '../style.css';
 
 const PhotoMore = function (props) {
   const mouseEnterHandler = () => {
@@ -8,14 +9,14 @@ const PhotoMore = function (props) {
   };
 
   const { position, photos, selected, changeSelected } = props;
-  const classes = selected ? 'photo-more box selected' : 'photo-more box';
+  const classes = selected ? `${css['photo-more']} ${css.box} ${css.selected}` : `${css['photo-more']} ${css.box}`;
 
   return (
-    <div id={position} className={classes} onMouseEnter={mouseEnterHandler} onMouseLeave={changeSelected.bind(null, 'middle')}>
-      <div className="small-photo zero" style={{ backgroundImage: `url(${photos[0].image_url}` }} />
-      <div className="small-photo one" style={{ backgroundImage: `url(${photos[1].image_url}` }} />
-      <div className="small-photo two" style={{ backgroundImage: `url(${photos[2].image_url}` }} />
-      <div className="small-photo three" style={{ backgroundImage: `url(${photos[3].image_url}` }} />
+    <div id={position} className={classes} onMouseEnter={mouseEnterHandler} onMouseLeave={changeSelected.bind(null, 'photoCarouselMiddle')}>
+      <div className={`${css['small-photo']} ${css.zero}`} style={{ backgroundImage: `url(${photos[0].image_url}` }} />
+      <div className={`${css['small-photo']} ${css.one}`} style={{ backgroundImage: `url(${photos[1].image_url}` }} />
+      <div className={`${css['small-photo']} ${css.two}`} style={{ backgroundImage: `url(${photos[2].image_url}` }} />
+      <div className={`${css['small-photo']} ${css.three}`} style={{ backgroundImage: `url(${photos[3].image_url}` }} />
       <SeeAll photoNum={photos.length + 2} />
     </div>
   );

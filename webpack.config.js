@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'client/src/PhotoCarousel.js'),
+  entry: path.join(__dirname, 'client/src/PhotoCarousel'),
   module: {
     rules: [
       {
@@ -15,8 +15,19 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '[sha1:hash:hex:8]'
+            }
+          }
+        ],
       },
     ]
   },

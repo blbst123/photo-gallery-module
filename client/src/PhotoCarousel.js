@@ -5,14 +5,14 @@ import axios from 'axios';
 import Photo from './components/Photo';
 import PhotoMore from './components/PhotoMore';
 import PhotoModal from './components/PhotoModal';
-import './style.css';
+import css from './style.css';
 
 export default class PhotoCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      selected: 'middle',
+      selected: 'photoCarouselMiddle',
       modalVisibility: false,
       modalPhoto: {},
       modalUser: {},
@@ -38,7 +38,7 @@ export default class PhotoCarousel extends React.Component {
       });
   }
 
-  changeSelected(pos = 'middle') {
+  changeSelected(pos = 'photoCarouselMiddle') {
     this.setState({
       selected: pos
     });
@@ -46,7 +46,7 @@ export default class PhotoCarousel extends React.Component {
 
   showPhotoModal(position) {
     const { data } = this.state;
-    const photoNum = (position === 'left') ? 0 : 1;
+    const photoNum = (position === 'photoCarouselLeft') ? 0 : 1;
 
     axios.get(`/user/${data[photoNum].user_id}`)
       .then((result) => {
@@ -61,7 +61,8 @@ export default class PhotoCarousel extends React.Component {
 
   hidePhotoModal() {
     this.setState({
-      modalVisibility: false
+      modalVisibility: false,
+      selected: 'photoCarouselMiddle'
     });
   }
 
@@ -101,20 +102,20 @@ export default class PhotoCarousel extends React.Component {
 
     if (modalVisibility) {
       return (
-        <div className="photo-carousel">
+        <div className={css['photo-carousel']}>
           <PhotoModal hideModal={this.hidePhotoModal} photo={photo} changePhoto={this.changePhoto} />
-          <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
-          <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
-          <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
+          <Photo position="photoCarouselLeft" selected={selected === 'photoCarouselLeft'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+          <Photo position="photoCarouselMiddle" selected={selected === 'photoCarouselMiddle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+          <PhotoMore position="photoCarouselRight" selected={selected === 'photoCarouselRight'} photos={data.slice(2)} changeSelected={this.changeSelected} />
         </div>
       );
     }
 
     return (
-      <div className="photo-carousel">
-        <Photo position="left" selected={selected === 'left'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
-        <Photo position="middle" selected={selected === 'middle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
-        <PhotoMore position="right" selected={selected === 'right'} photos={data.slice(2)} changeSelected={this.changeSelected} />
+      <div className={css['photo-carousel']}>
+        <Photo position="photoCarouselLeft" selected={selected === 'photoCarouselLeft'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+        <Photo position="photoCarouselMiddle" selected={selected === 'photoCarouselMiddle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+        <PhotoMore position="photoCarouselRight" selected={selected === 'photoCarouselRight'} photos={data.slice(2)} changeSelected={this.changeSelected} />
       </div>
     );
   }

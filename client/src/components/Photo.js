@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import css from '../style.css';
 
 import CommentPreview from './CommentPreview';
 
@@ -27,16 +28,17 @@ export default class Photo extends React.Component {
   }
 
   enterHandler() {
-    this.props.changeSelected(this.props.position);
+    const { changeSelected, position } = this.props;
+    changeSelected(position);
   }
 
   render() {
     const { position, photo, selected, changeSelected, showModal } = this.props;
-    const classes = selected ? 'box selected' : 'box';
+    const classes = selected ? `${css.box} ${css.selected}` : `${css.box}`;
     const { user } = this.state;
 
     return (
-      <div id={position} className={classes} style={{ backgroundImage: `url(${photo.image_url}` }} onMouseEnter={this.enterHandler} onMouseLeave={changeSelected.bind(null, 'middle')} onClick={showModal.bind(null, position)}>
+      <div id={position} className={classes} style={{ backgroundImage: `url(${photo.image_url}` }} onMouseEnter={this.enterHandler} onMouseLeave={changeSelected.bind(null, 'photoCarouselMiddle')} onClick={showModal.bind(null, position)}>
         <CommentPreview comment={photo.comment} user={user} selected={selected} />
       </div>
     );
