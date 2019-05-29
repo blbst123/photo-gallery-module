@@ -19,7 +19,9 @@ module.exports = {
     "react/forbid-prop-types": 0,
     "object-curly-newline": 0,
     "jsx-a11y/click-events-have-key-events": 0,
-    "jsx-a11y/no-static-element-interactions": 0
+    "jsx-a11y/no-static-element-interactions": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "max-len": 0
   },
   "env": {
     "node": true,
