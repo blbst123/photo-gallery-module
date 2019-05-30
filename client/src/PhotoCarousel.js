@@ -102,11 +102,13 @@ export default class PhotoCarousel extends React.Component {
 
     if (modalVisibility) {
       return (
-        <div className={css['photo-carousel']}>
+        <div className={css.container}>
           <PhotoModal hideModal={this.hidePhotoModal} photo={photo} changePhoto={this.changePhoto} />
-          <Photo position="photoCarouselLeft" selected={selected === 'photoCarouselLeft'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
-          <Photo position="photoCarouselMiddle" selected={selected === 'photoCarouselMiddle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
-          <PhotoMore position="photoCarouselRight" selected={selected === 'photoCarouselRight'} photos={data.slice(2)} changeSelected={this.changeSelected} />
+          <div className={css['photo-carousel']}>
+            <Photo position="photoCarouselLeft" selected={selected === 'photoCarouselLeft'} photo={data[0]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+            <Photo position="photoCarouselMiddle" selected={selected === 'photoCarouselMiddle'} photo={data[1]} changeSelected={this.changeSelected} showModal={this.showPhotoModal} />
+            <PhotoMore position="photoCarouselRight" selected={selected === 'photoCarouselRight'} photos={data.slice(2)} changeSelected={this.changeSelected} />
+          </div>
         </div>
       );
     }
