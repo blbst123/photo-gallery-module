@@ -14,7 +14,8 @@
     "server-client": "node server/index.js",
     "test": "jest",
     "generate-data": "node database/generateData.js",
-    "create-database": "mysql -u root < database/schema.sql"
+    "create-database": "mysql -u root < database/schema.sql",
+    "begin": "npm run create-database && npm run generate-data && npm run react-client && npm run server-client"
   },
   "dependencies": {
     "axios": "^0.18.0",

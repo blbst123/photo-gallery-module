@@ -34,9 +34,6 @@ From within the root directory:
 
 ```sh
 npm install
-npm run create-database
-npm run generate-data
-npm run react-client
-npm run server-client
+npm run begin
 ```
 
