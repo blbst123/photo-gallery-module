@@ -15,7 +15,6 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  z-index: -1;
 }
 
 .box {
@@ -184,7 +183,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  z-index: 3;
+  z-index: 10;
 }
 
 .photo-modal-close {
@@ -503,7 +502,6 @@ button.helpful-buttons:hover {
   grid-column: 2/span 1;
   grid-row: 2/span 1;
   background-color: white;
-  z-index: 4;
   border-bottom-right-radius: 5px;
   padding: 0 10px;
   box-sizing: border-box;
