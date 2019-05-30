@@ -35,7 +35,7 @@
 
 .selected {
   transform: scale(1.136);
-  transition: 0.5s;
+  transition: 0.35s;
   z-index: 2;
 }
 
@@ -49,11 +49,12 @@
   height: 40px;
   background: rgba(0, 0, 0, 0.4);
   color: white;
-  padding: 5px;
+  padding: 5px 5px 5px 8px;
   transition: 0.3s;
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-gap: 5px;
+  line-height: 15px;
 }
 
 .comment-preview.hide-comment {
