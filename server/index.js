@@ -4,7 +4,7 @@ const path = require('path');
 const db = require('../database/databaseFunctions.js');
 
 const app = express();
-const port = 3003;
+const port = 3004;
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));

@@ -1,7 +1,3 @@
-* {
-  font-family: "Helvetica Neue";
-  font-size: 14px;
-}
 /*******************
  Photo Carousel
 *******************/
@@ -9,6 +5,8 @@
 .photo-carousel {
   width: 750px;
   padding: 30px;
+  font-family: "Helvetica Neue";
+  font-size: 14px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
