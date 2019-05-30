@@ -7,9 +7,9 @@
   padding: 30px;
   font-family: "Helvetica Neue";
   font-size: 14px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
   z-index: -1;
 }
 
