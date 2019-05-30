@@ -8,7 +8,7 @@
 *******************/
 
 .photo-carousel {
-  width: 750px;
+  width: 720px;
   padding: 30px;
   font-family: "Helvetica Neue";
   font-size: 14px;
@@ -18,8 +18,8 @@
 }
 
 .box {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   margin: 0 0px;
   transition: 0.5s;
   position: relative;
@@ -34,7 +34,7 @@
 }
 
 .selected {
-  transform: scale(1.15);
+  transform: scale(1.136);
   transition: 0.5s;
   z-index: 2;
 }
