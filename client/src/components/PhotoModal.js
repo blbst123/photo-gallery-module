@@ -15,10 +15,12 @@ export default class PhotoModal extends React.Component {
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKey);
+    document.body.style.overflow = 'hidden';
   }
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.handleKey);
+    document.body.style.overflow = 'unset';
   }
 
   handleKey(e) {
