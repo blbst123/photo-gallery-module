@@ -1,0 +1,19 @@
+## DOCKER ##
+Dockerfile
+docker-compose.yml
+
+## MAC files ##
+.DS_Store
+
+## NPM ##
+npm
+npm-debug.log
+node_modules/
+
+## GIT ##
+.gitignore
+.git
+
+README.md
+
+mysqlDocker/

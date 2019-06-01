@@ -9,7 +9,7 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "react-client": "webpack -d",
+    "react-client": "webpack -p",
     "server-dev": "nodemon server/index.js",
     "server-client": "node server/index.js",
     "test": "jest",

@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const sequelize = new Sequelize('photo_gallery', 'root', 'password', {
   host: 'database',
   dialect: 'mysql',
-  // logging: false
+  logging: false
 });
 
 sequelize
