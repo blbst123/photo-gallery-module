@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
 // create the sequelize instance
-const sequelize = new Sequelize('photo_gallery', 'root', '', {
-  host: 'localhost',
+const sequelize = new Sequelize('photo_gallery', 'root', 'password', {
+  host: 'database',
   dialect: 'mysql',
   // logging: false
 });
